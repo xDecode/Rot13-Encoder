@@ -23,7 +23,7 @@ namespace Verschlüsselung
         public void TestEncodeSentence()
         {
             var verschlüsseler = new Rot13();
-            Assert.Equal("Arva, vfg rva Grfg, hz mh grfgra, bo qnf shagvbavreg", verschlüsseler.Encode("Nein, ist ein Test, um zu testen, ob das funtioniert"));
+            Assert.Equal("Arva, ARVA, Arva, arva", verschlüsseler.Encode("Nein, NEIN, Nein, nein"));
         }
     }
 }

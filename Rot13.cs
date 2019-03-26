@@ -11,14 +11,17 @@ namespace Verschlüsselung
             for (int i = 0; i < wort.Length; i++)
             {
                 int number = wort[i];
-               
+                // int extra = 0;
+                // if (char.IsLower(wort[i]))
+                //     extra = 'a' - 'A';
+
                 if (number >= 'a' && number <= 'z' || number >= 'A' && number <= 'Z')
                 {
                     if (number <= 'm' && number >= 'a' || number <= 'M' && number >= 'A')
                     {
                         number += v;
                     }
-                    else 
+                    else
                     {
                         number -= v;
                     }
