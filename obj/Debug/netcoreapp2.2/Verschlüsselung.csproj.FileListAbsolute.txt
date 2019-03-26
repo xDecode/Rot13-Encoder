@@ -1,0 +1,14 @@
+c:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+c:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+c:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\Verschlüsselung.deps.json
+C:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\Verschlüsselung.runtimeconfig.json
+C:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\Verschlüsselung.runtimeconfig.dev.json
+c:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\Verschlüsselung.dll
+c:\!dev\Verschlüsselung\bin\Debug\netcoreapp2.2\Verschlüsselung.pdb
+c:\!dev\Verschlüsselung\obj\Debug\netcoreapp2.2\Verschlüsselung.csprojAssemblyReference.cache
+c:\!dev\Verschlüsselung\obj\Debug\netcoreapp2.2\Verschlüsselung.csproj.CoreCompileInputs.cache
+c:\!dev\Verschlüsselung\obj\Debug\netcoreapp2.2\Verschlüsselung.AssemblyInfoInputs.cache
+c:\!dev\Verschlüsselung\obj\Debug\netcoreapp2.2\Verschlüsselung.AssemblyInfo.cs
+c:\!dev\Verschlüsselung\obj\Debug\netcoreapp2.2\Verschlüsselung.dll
+c:\!dev\Verschlüsselung\obj\Debug\netcoreapp2.2\Verschlüsselung.pdb
