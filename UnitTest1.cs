@@ -6,12 +6,12 @@ namespace Verschlüsselung
     public class UnitTest1
     {
         [Fact]
-        public void TestEncodeOneLetter()
+        public void TestEncodeForN()
         {
             var verschlüsseler = new Rot13();
-            Assert.Equal("m", verschlüsseler.Encode("z"));
+            Assert.Equal("aaaa AAAA", verschlüsseler.Encode("nnnn NNNN"));
         }
-
+        
         [Fact]
         public void TestEncode()
         {
@@ -23,7 +23,7 @@ namespace Verschlüsselung
         public void TestEncodeSentence()
         {
             var verschlüsseler = new Rot13();
-            Assert.Equal("Qnf vfg rva Grfg, hz mh grfgra, bo qnf shagvbavreg", verschlüsseler.Encode("Das ist ein Test, um zu testen, ob das funtioniert"));
+            Assert.Equal("Arva, vfg rva Grfg, hz mh grfgra, bo qnf shagvbavreg", verschlüsseler.Encode("Nein, ist ein Test, um zu testen, ob das funtioniert"));
         }
     }
 }
