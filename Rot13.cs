@@ -1,34 +1,25 @@
-using System;
-
 namespace Verschlüsselung
 {
     public class Rot13
     {
-        private const int v = 13;
-        public string Encode(string TextToEncode)
+        public string Encode(string input)
         {
-            char[] wort = TextToEncode.ToCharArray();
-            for (int i = 0; i < wort.Length; i++)
+            string result = "";
+            foreach (char currentChar in input)
             {
-                int number = wort[i];
-                // int extra = 0;
-                // if (char.IsLower(wort[i]))
-                //     extra = 'a' - 'A';
+                int rot13 = -13;
+                int adjustmentValue = char.IsLower(currentChar) ? 32 : 0;
+                int charValue = currentChar - adjustmentValue;
 
-                if (number >= 'a' && number <= 'z' || number >= 'A' && number <= 'Z')
+                if (char.IsLetter(currentChar))
                 {
-                    if (number <= 'm' && number >= 'a' || number <= 'M' && number >= 'A')
-                    {
-                        number += v;
-                    }
-                    else
-                    {
-                        number -= v;
-                    }
+                    if (charValue <= 'M' && charValue >= 'A')
+                        rot13 = 13;
+                    charValue += adjustmentValue + rot13;
                 }
-                wort[i] = (char)number;
+                result = result + (char)charValue;
             }
-            return new string(wort);
+            return result;
         }
     }
 }

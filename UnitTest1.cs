@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Verschlüsselung
@@ -9,7 +8,7 @@ namespace Verschlüsselung
         public void TestEncodeForN()
         {
             var verschlüsseler = new Rot13();
-            Assert.Equal("aaaa AAAA", verschlüsseler.Encode("nnnn NNNN"));
+            Assert.Equal("n o p q r s t u v w x y z a b c d e f g h i j k l m", verschlüsseler.Encode("a b c d e f g h i j k l m n o p q r s t u v w x y z"));
         }
         
         [Fact]
@@ -23,7 +22,7 @@ namespace Verschlüsselung
         public void TestEncodeSentence()
         {
             var verschlüsseler = new Rot13();
-            Assert.Equal("Arva, ARVA, Arva, arva", verschlüsseler.Encode("Nein, NEIN, Nein, nein"));
+            Assert.Equal("N O P Q R S T U V W X Y Z A B C D E F G H I D K L M", verschlüsseler.Encode("A B C D E F G H I J K L M N O P Q R S T U V Q X Y Z"));
         }
     }
 }
