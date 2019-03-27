@@ -1,5 +1,5 @@
 using Xunit;
-
+using Verschlüsselung;
 namespace Verschlüsselung
 {
     public class UnitTest1
@@ -10,7 +10,14 @@ namespace Verschlüsselung
             var verschlüsseler = new Rot13();
             Assert.Equal("n o p q r s t u v w x y z a b c d e f g h i j k l m", verschlüsseler.Encode("a b c d e f g h i j k l m n o p q r s t u v w x y z"));
         }
-        
+
+        [Fact]
+        public void TestEncodeUmlaute()
+        {
+            var verschlüsseler = new Rot13();
+            Assert.Equal("äüöß", verschlüsseler.Encode("äüöß"));
+        }
+
         [Fact]
         public void TestEncode()
         {
@@ -23,6 +30,16 @@ namespace Verschlüsselung
         {
             var verschlüsseler = new Rot13();
             Assert.Equal("N O P Q R S T U V W X Y Z A B C D E F G H I D K L M", verschlüsseler.Encode("A B C D E F G H I J K L M N O P Q R S T U V Q X Y Z"));
+        }
+
+        [Fact]
+        public void TestEncodeDatei()
+        {
+            var Fileverschlüsseler = new FileEncryption();
+            IEncoder rot13 = new Rot13();
+            IEncoder base64 = new Base64();
+
+            Assert.Equal("Qnf vfg rva Grfg", Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", rot13));
         }
     }
 }
