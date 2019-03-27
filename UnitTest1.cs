@@ -37,9 +37,10 @@ namespace Verschlüsselung
         {
             var Fileverschlüsseler = new FileEncryption();
             IEncoder rot13 = new Rot13();
-            IEncoder base64 = new Base64();
+            IEncoder encodeBase64 = new encodeBase64();
+            IEncoder decodeBase64 = new decodeBase64();
 
-            Assert.Equal("Qnf vfg rva Grfg", Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", rot13));
+            Assert.Equal("Es wird nichts erwartet", Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", decodeBase64));
         }
     }
 }

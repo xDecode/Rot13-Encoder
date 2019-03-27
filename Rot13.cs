@@ -26,7 +26,7 @@ namespace Verschlüsselung
                 {
                     result += (char)charValue;
                 }
-            
+
             }
             return result;
         }
