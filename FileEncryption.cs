@@ -7,14 +7,31 @@ namespace Verschlüsselung
     public class FileEncryption
     {
 
-        public string EncodeDatei(string Datei, IEncoder encoder)
+        public string EncodeDatei(string Datei, IEncoder coder)
         {
             string readText = File.ReadAllText(Datei, Encoding.UTF7);
-            string Encodedtext = encoder.Encode(readText);
+            string Encodedtext = coder.Encode(readText);
 
             try
             {
                 string newDateiPfad = @"C:\Users\Marvin.Lehnert\Desktop\EncodedText.txt";
+                File.WriteAllText(newDateiPfad, Encodedtext, Encoding.UTF8);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return Encodedtext;
+
+        }
+        public string DecodeDatei(string Datei, IDecoder coder)
+        {
+            string readText = File.ReadAllText(Datei, Encoding.UTF7);
+            string Encodedtext = coder.Decode(readText);
+
+            try
+            {
+                string newDateiPfad = @"C:\Users\Marvin.Lehnert\Desktop\DecodedText.txt";
                 File.WriteAllText(newDateiPfad, Encodedtext, Encoding.UTF8);
             }
             catch (Exception ex)

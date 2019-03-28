@@ -2,6 +2,7 @@ namespace Verschlüsselung
 {
     public class Rot13 : IEncoder
     {
+        //Encoding and Decoding
         public string Encode(string input)
         {
             string result = "";

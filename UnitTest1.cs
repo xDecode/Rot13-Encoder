@@ -1,5 +1,4 @@
 using Xunit;
-using Verschlüsselung;
 namespace Verschlüsselung
 {
     public class UnitTest1
@@ -37,10 +36,17 @@ namespace Verschlüsselung
         {
             var Fileverschlüsseler = new FileEncryption();
             IEncoder rot13 = new Rot13();
-            IEncoder encodeBase64 = new encodeBase64();
-            IEncoder decodeBase64 = new decodeBase64();
+            IEncoder encoderBase64 = new encodeBase64();
+            IEncoder encrypter = new Encrypter();
 
-            Assert.Equal("Es wird nichts erwartet", Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", decodeBase64));
+            IDecoder decrypter = new Decrypter();
+            IDecoder decoderBase64 = new decodeBase64();
+
+            // var verschlüsselt = Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", encrypter);
+            // var entschlüsselt = decrypter.Code(verschlüsselt);
+            // Assert.Equal("Dies ist ein Test", Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", encrypter));      
+            Assert.Equal("Dies ist ein Test", Fileverschlüsseler.DecodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", decrypter));      
+
         }
     }
 }
