@@ -5,13 +5,14 @@ using System.Text;
 
 namespace Verschlüsselung
 {
-    public class Encrypter : IEncoder
+    public class Rijndael : ICrypto
     {
         public string Encode(string input)
         {
-            Rijndael alg = Rijndael.Create();
+            System.Security.Cryptography.Rijndael alg = System.Security.Cryptography.Rijndael.Create();
             alg.Key = Encoding.UTF8.GetBytes("kaudkwudhtbenwnakaudkwudhtbenwna");
             alg.IV = Encoding.UTF8.GetBytes("HR$2pIjHR$2pIj12");
+            alg.Padding = PaddingMode.Zeros;
 
             ICryptoTransform encryptor = alg.CreateEncryptor(alg.Key, alg.IV);
             using (MemoryStream msEncrypt = new MemoryStream())
@@ -26,26 +27,26 @@ namespace Verschlüsselung
                 }
             }
         }
-    }
-        public class Decrypter : IDecoder
+        public string Decode(string input)
         {
-            public string Decode(string input)
+            System.Security.Cryptography.Rijndael alg = System.Security.Cryptography.Rijndael.Create();
+            alg.Key = Encoding.UTF8.GetBytes("kaudkwudhtbenwnakaudkwudhtbenwna");
+            alg.IV = Encoding.UTF8.GetBytes("HR$2pIjHR$2pIj12");
+            alg.Padding = PaddingMode.Zeros;
+            string result;
+            ICryptoTransform decryptor = alg.CreateDecryptor(alg.Key, alg.IV);
+            using (MemoryStream msDecrypt = new MemoryStream(Encoding.Unicode.GetBytes(input)))
             {
-                Rijndael alg = Rijndael.Create();
-                alg.Key = Encoding.UTF8.GetBytes("kaudkwudhtbenwnakaudkwudhtbenwna");
-                alg.IV = Encoding.UTF8.GetBytes("HR$2pIjHR$2pIj12");
-
-                ICryptoTransform decryptor = alg.CreateDecryptor(alg.Key, alg.IV);
-                using (MemoryStream msDecrypt = new MemoryStream(Encoding.Unicode.GetBytes(input)))
+                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                 {
-                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    using (StreamReader srDecrypt = new StreamReader(csDecrypt))
                     {
-                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                        {
-                            return srDecrypt.ReadToEnd();
-                        }
+                        result = srDecrypt.ReadToEnd();
                     }
                 }
             }
+            return result;
         }
     }
+}
+

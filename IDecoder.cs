@@ -1,7 +1,8 @@
 namespace Verschlüsselung
 {
-    public interface IDecoder
+    public interface ICrypto
     {
         string Decode(string input);
+        string Encode(string input);
     }
 }

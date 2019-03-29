@@ -35,17 +35,14 @@ namespace Verschlüsselung
         public void TestEncodeDatei()
         {
             var Fileverschlüsseler = new FileEncryption();
-            IEncoder rot13 = new Rot13();
-            IEncoder encoderBase64 = new encodeBase64();
-            IEncoder encrypter = new Encrypter();
-
-            IDecoder decrypter = new Decrypter();
-            IDecoder decoderBase64 = new decodeBase64();
+            ICrypto rot13 = new Rot13();
+            ICrypto base64 = new Base64();
+            ICrypto encrypter = new Rijndael();
 
             // var verschlüsselt = Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", encrypter);
             // var entschlüsselt = decrypter.Code(verschlüsselt);
             // Assert.Equal("Dies ist ein Test", Fileverschlüsseler.EncodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", encrypter));      
-            Assert.Equal("Dies ist ein Test", Fileverschlüsseler.DecodeDatei("C:/Users/Marvin.Lehnert/Desktop/Text.txt", decrypter));      
+            Assert.Equal("Dies ist ein Test", Fileverschlüsseler.DecodeDatei("C:/Users/Marvin.Lehnert/Desktop/EncodedText.txt", encrypter));      
 
         }
     }

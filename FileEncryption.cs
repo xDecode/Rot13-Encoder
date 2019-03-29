@@ -7,7 +7,7 @@ namespace Verschlüsselung
     public class FileEncryption
     {
 
-        public string EncodeDatei(string Datei, IEncoder coder)
+        public string EncodeDatei(string Datei, ICrypto coder)
         {
             string readText = File.ReadAllText(Datei, Encoding.UTF7);
             string Encodedtext = coder.Encode(readText);
@@ -24,7 +24,7 @@ namespace Verschlüsselung
             return Encodedtext;
 
         }
-        public string DecodeDatei(string Datei, IDecoder coder)
+        public string DecodeDatei(string Datei, ICrypto coder)
         {
             string readText = File.ReadAllText(Datei, Encoding.UTF7);
             string Encodedtext = coder.Decode(readText);
